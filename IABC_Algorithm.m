@@ -199,11 +199,7 @@ for iteration = 1: max_iteration
     for i=1:num_source
         %Choosing the maximum number of trial iteration
         if trial_counter(i) > max_trial
-            lamda = (max_iteration - iteration + 1)/max_iteration;
-            ch_iplus1 = 4*ch_i*(1-ch_i);
-            chvect_i = lower_bound + ch_i*(upper_bound - lower_bound);
-            bee(i).source = (1 - lamda)*best_food.source + (lamda * ch_i);
-            ch_i = ch_iplus1;
+            bee(i).source  = lower_bound + unifrnd(0,1)*(upper_bound - lower_bound);
         end % End of choatic based search of scout bee
     end %End of scout bee phase
 end % End of allowed iteration
